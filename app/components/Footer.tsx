@@ -1,4 +1,4 @@
-import { Sparkles } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -6,10 +6,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
         <div className="md:col-span-2">
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg bg-linear-to-br from-primary to-accent grid place-items-center">
-              <Sparkles className="h-4 w-4 text-primary-foreground" />
+            <div className="rounded-lg bg-linear-to-br from-primary to-accent grid place-items-center">
+              <Image src="/logo.jpg" alt="logo" width={50} height={50} />
             </div>
-            <span className="font-display font-semibold">NxtGen Academy</span>
+            <span className="font-display font-semibold tracking-tight">
+              NxtGen<span className="text-primary">.</span>
+            </span>
           </div>
           <p className="mt-4 max-w-sm text-sm text-muted-foreground">
             AI-powered career transition academy for Analytics and Product

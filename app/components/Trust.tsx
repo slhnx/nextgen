@@ -1,12 +1,14 @@
+import Image from "next/image";
+
 const partners = [
-  { name: "Google", className: "font-semibold tracking-tight" },
-  { name: "Microsoft", className: "font-semibold tracking-tight" },
-  { name: "Amazon", className: "font-semibold tracking-tight" },
-  { name: "Deloitte", className: "font-semibold tracking-tight" },
-  { name: "Accenture", className: "font-semibold tracking-tight" },
-  { name: "Infosys", className: "font-semibold tracking-tight" },
-  { name: "TCS", className: "font-semibold tracking-[0.2em]" },
-  { name: "EY", className: "font-semibold tracking-[0.2em]" },
+  { name: "Google", logo: "/logos/google.png" },
+  { name: "BlackRock", logo: "/logos/blackrock.svg" },
+  { name: "Amazon", logo: "/logos/amazon.svg" },
+  { name: "Deloitte", logo: "/logos/deloitte.svg" },
+  { name: "Accenture", logo: "/logos/accenture.svg" },
+  { name: "Infosys", logo: "/logos/infosys.svg" },
+  { name: "TCS", logo: "/logos/tcs.svg" },
+  { name: "EY", logo: "/logos/ey.svg" },
 ];
 
 export default function Trust() {
@@ -23,11 +25,16 @@ export default function Trust() {
           {partners.map((p) => (
             <div
               key={p.name}
-              className="bg-background py-8 grid place-items-center text-muted-foreground hover:text-foreground transition"
+              className="bg-background py-8 px-4 flex justify-center items-center"
             >
-              <span className={`text-base sm:text-lg uppercase ${p.className}`}>
-                {p.name}
-              </span>
+              <div className="relative h-8 md:h-10 w-full max-w-[120px]">
+                <Image
+                  src={p.logo}
+                  alt={`${p.name} logo`}
+                  fill
+                  className="object-contain brightness-0 invert-[0.5] dark:invert-[0.8]"
+                />
+              </div>
             </div>
           ))}
         </div>

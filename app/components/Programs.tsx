@@ -124,7 +124,9 @@ export default function Programs() {
               </div>
 
               <a
-                href="#cta"
+                href="/Nxtgen Final.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-7 inline-flex items-center gap-1.5 text-sm font-medium text-primary group"
               >
                 View curriculum
