@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
 const partners = [
@@ -21,22 +22,35 @@ export default function Trust() {
         <p className="mt-3 text-sm text-muted-foreground text-center">
           Curriculum aligned with modern AI-driven industry requirements.
         </p>
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-px bg-border/50 rounded-2xl overflow-hidden">
-          {partners.map((p) => (
-            <div
-              key={p.name}
-              className="bg-background py-8 px-4 flex justify-center items-center"
-            >
-              <div className="relative h-8 md:h-10 w-full max-w-[120px]">
-                <Image
-                  src={p.logo}
-                  alt={`${p.name} logo`}
-                  fill
-                  className="object-contain brightness-0 invert-[0.5] dark:invert-[0.8]"
-                />
-              </div>
+        <div className="mt-10 rounded-2xl border border-border/50 bg-background overflow-hidden">
+          <div className="logo-marquee">
+            <div className="logo-track">
+              {[...partners, ...partners].map((p, index) => (
+                <div
+                  key={`${p.name}-${index}`}
+                  className="logo-item flex items-center justify-center"
+                >
+                  <div className="relative h-8 md:h-10 w-full max-w-[120px]">
+                    <Image
+                      src={p.logo}
+                      alt={`${p.name} logo`}
+                      fill
+                      className="object-contain brightness-0 invert-[0.5] dark:invert-[0.8]"
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+        </div>
+        <div className="mt-6 flex justify-center">
+          <a
+            href="#"
+            className="group inline-flex items-center gap-2 rounded-xl bg-primary text-primary-foreground px-6 py-3.5 font-medium hover:shadow-[0_0_40px_oklch(0.62_0.22_258/0.5)] transition"
+          >
+            See Placement Reports
+            <ArrowUpRight className="h-4 w-4 group-hover:rotate-45 transition" />
+          </a>
         </div>
       </div>
     </section>

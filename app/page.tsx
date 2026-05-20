@@ -5,19 +5,22 @@ import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Journey from "./components/Journey";
 import Nav from "./components/Nav";
+import AlumniNetwork from "./components/AlumniNetwork";
 import Pricing from "./components/Pricing";
 import Programs from "./components/Programs";
 import Projects from "./components/Projects";
+import OutcomeRecipe from "./components/OutcomeRecipe";
 import Stories from "./components/Stories";
 import Trust from "./components/Trust";
 import WhyUs from "./components/WhyUs";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground noise overflow-x-hidden">
+    <div className="bg-background text-foreground noise">
       <Nav />
       <Hero />
       <Trust />
+      <OutcomeRecipe />
       <Programs />
       <WhyUs />
       <Journey />
@@ -26,6 +29,7 @@ export default function Home() {
       <Curriculum />
       <Pricing />
       <FAQ />
+      <AlumniNetwork />
       <FinalCTA />
       <Footer />
     </div>
