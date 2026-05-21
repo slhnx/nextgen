@@ -1,10 +1,11 @@
 "use client";
 
 import { useRef } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight} from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button, buttonVariants } from "@/components/ui/button";
+import { LiaLinkedin } from "react-icons/lia";
 
 const alumni = [
   {
@@ -158,8 +159,9 @@ export default function AlumniNetwork() {
                     href="#"
                     className={`${buttonVariants({
                       variant: "outline",
-                    })} mt-4 w-full rounded-xl px-3 py-2 text-sm font-medium text-foreground hover:border-primary/40 hover:text-primary transition border-border bg-transparent`}
+                    })} mt-4 w-full rounded-xl px-3 py-2.5 text-sm font-medium text-foreground hover:text-blue-400 border-blue-500! hover:border-blue-600 hover:bg-blue-500/10 transition bg-transparent flex items-center justify-center gap-2`}
                   >
+                    <LiaLinkedin className="h-4 w-4 text-blue-500" />
                     Connect on LinkedIn
                   </a>
                 </div>

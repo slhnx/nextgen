@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 
 const programs = [
   {
@@ -99,7 +99,7 @@ export default function Programs() {
 
                   <div className="mt-6">
                     <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3">
-                      You'll learn
+                      {"You'll learn"}
                     </p>
                     <div className="flex flex-wrap gap-1.5">
                       {p.stack.map((s) => (
