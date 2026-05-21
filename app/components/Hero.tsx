@@ -129,7 +129,7 @@ export default function Hero() {
             </div>
 
             <h1 className="font-display text-[clamp(2.6rem,7vw,6rem)] leading-[0.95] font-semibold max-w-5xl">
-              Build your career in{" "}
+              Build your career in&nbsp;
               <span className="text-gradient italic">AI & Analytics</span>
             </h1>
 
@@ -196,7 +196,7 @@ export default function Hero() {
                   <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">
                     {stat.label}
                   </div>
-                  <div className="rounded-lg bg-primary/5 p-2 text-primary border border-primary/10 group-hover:bg-primary/15 group-hover:text-primary-foreground group-hover:border-primary/30 transition-all duration-300 shrink-0">
+                  <div className="rounded-lg bg-primary/5 p-2 text-primary border border-primary/10 group-hover:bg-primary/80 group-hover:text-white group-hover:border-primary/30 transition-all duration-300 shrink-0">
                     <Icon className="h-4 w-4" />
                   </div>
                 </div>
