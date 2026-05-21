@@ -98,7 +98,7 @@ export default function Pricing() {
                   </ul>
                 </CardContent>
               </div>
-              <CardFooter className="p-0 mt-8 border-0 bg-transparent rounded-none">
+              <CardFooter className="p-0 mt-8 mb-6 border-0 bg-transparent rounded-none">
                 <a
                   href="#cta"
                   className={`${buttonVariants({
