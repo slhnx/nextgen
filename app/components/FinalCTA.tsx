@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { Button, buttonVariants } from "@/components/ui/button";
 
 export default function FinalCTA() {
   return (
@@ -11,7 +12,7 @@ export default function FinalCTA() {
           <span className="text-xs font-mono uppercase tracking-widest text-accent">
             Your move
           </span>
-          <h2 className="mt-4 font-display text-[clamp(2rem,5vw,4.5rem)] leading-[1.05] font-semibold max-w-3xl">
+          <h2 className="mt-4 font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.05] font-semibold max-w-3xl text-foreground">
             Your AI career{" "}
             <span className="text-gradient italic">starts here.</span>
           </h2>
@@ -22,14 +23,19 @@ export default function FinalCTA() {
           <div className="mt-10 flex flex-wrap gap-3">
             <a
               href="#"
-              className="group inline-flex items-center gap-2 rounded-xl bg-primary text-primary-foreground px-7 py-4 font-medium hover:shadow-[0_0_40px_oklch(0.62_0.22_258/0.6)] transition"
+              className={`${buttonVariants({
+                size: "lg",
+              })} rounded-xl px-7 py-4 h-auto font-medium hover:shadow-[0_0_40px_oklch(0.62_0.22_258/0.6)] transition group/button border-0`}
             >
               Apply Now
-              <ArrowUpRight className="h-4 w-4 group-hover:rotate-45 transition" />
+              <ArrowUpRight className="h-4 w-4 group-hover/button:rotate-45 transition" />
             </a>
             <a
               href="#"
-              className="inline-flex items-center gap-2 rounded-xl border border-border bg-background/60 px-7 py-4 font-medium hover:bg-background transition"
+              className={`${buttonVariants({
+                variant: "outline",
+                size: "lg",
+              })} rounded-xl bg-background/60 px-7 py-4 h-auto font-medium hover:bg-background transition border-border`}
             >
               Talk to a Counsellor
             </a>

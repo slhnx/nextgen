@@ -1,5 +1,14 @@
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import SectionHeading from "./SectionHeading";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
+import { Button, buttonVariants } from "@/components/ui/button";
 
 const plans = [
   {
@@ -50,40 +59,61 @@ export default function Pricing() {
         <SectionHeading eyebrow="Pricing" title="Flexible Learning Plans" />
         <div className="mt-16 grid lg:grid-cols-3 gap-5">
           {plans.map((pl) => (
-            <div
+            <Card
               key={pl.n}
-              className={`relative rounded-2xl p-8 flex flex-col ${pl.featured ? "glow-border bg-card" : "border border-border bg-card/60"}`}
+              className={`relative rounded-2xl p-8 flex flex-col justify-between border-0 gap-0 shadow-none ring-transparent overflow-visible h-full ${
+                pl.featured ? "glow-border bg-card" : "border border-border bg-card/60"
+              }`}
             >
               {pl.featured && (
-                <span className="absolute -top-3 left-8 text-xs font-mono uppercase tracking-widest bg-primary text-primary-foreground px-3 py-1 rounded-md">
+                <span className="absolute -top-3 left-8 text-xs font-mono uppercase tracking-widest bg-primary text-primary-foreground px-3 py-1 rounded-md z-10">
                   Most picked
                 </span>
               )}
-              <h4 className="font-display text-xl font-semibold">{pl.n}</h4>
-              <p className="mt-1 text-sm text-muted-foreground">{pl.d}</p>
-              <div className="mt-6 flex items-baseline gap-1">
-                <span className="font-display text-5xl font-semibold">
-                  ₹{pl.p}
-                </span>
+              <div>
+                <CardHeader className="p-0 gap-1">
+                  <CardTitle className="font-display text-xl font-semibold text-foreground">
+                    {pl.n}
+                  </CardTitle>
+                  <CardDescription className="text-sm text-muted-foreground leading-normal">
+                    {pl.d}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="p-0 mt-6">
+                  <div className="flex items-baseline gap-1">
+                    <span className="font-display text-5xl font-semibold text-foreground">
+                      ₹{pl.p}
+                    </span>
+                  </div>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    EMI available · Scholarships open
+                  </p>
+                  <ul className="mt-8 space-y-3 text-sm">
+                    {pl.f.map((x) => (
+                      <li key={x} className="flex items-start gap-2 text-foreground">
+                        <CheckCircle2 className="h-4 w-4 text-accent mt-0.5 shrink-0" />
+                        {x}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
               </div>
-              <p className="mt-1 text-xs text-muted-foreground">
-                EMI available · Scholarships open
-              </p>
-              <ul className="mt-8 space-y-3 text-sm flex-1">
-                {pl.f.map((x) => (
-                  <li key={x} className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-accent mt-0.5 shrink-0" />
-                    {x}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="#cta"
-                className={`mt-8 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-medium transition ${pl.featured ? "bg-primary text-primary-foreground hover:shadow-[0_0_40px_oklch(0.62_0.22_258/0.5)]" : "border border-border bg-background hover:bg-card"}`}
-              >
-                Enroll <ArrowUpRight className="h-4 w-4" />
-              </a>
-            </div>
+              <CardFooter className="p-0 mt-8 border-0 bg-transparent rounded-none">
+                <a
+                  href="#cta"
+                  className={`${buttonVariants({
+                    variant: pl.featured ? "default" : "outline",
+                    size: "lg",
+                  })} w-full rounded-xl h-auto py-3 font-medium transition ${
+                    pl.featured
+                      ? "hover:shadow-[0_0_40px_oklch(0.62_0.22_258/0.5)]"
+                      : "bg-background hover:bg-card"
+                  }`}
+                >
+                  Enroll <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </CardFooter>
+            </Card>
           ))}
         </div>
       </div>

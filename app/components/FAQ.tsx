@@ -1,7 +1,11 @@
 "use client";
 
-import { Minus, Plus } from "lucide-react";
-import { useState } from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import SectionHeading from "./SectionHeading";
 
 const qs = [
@@ -40,40 +44,25 @@ const qs = [
 ];
 
 export default function FAQ() {
-  const [open, setOpen] = useState<number | null>(0);
   return (
     <section id="faq" className="py-28 px-4">
       <div className="max-w-4xl mx-auto">
         <SectionHeading eyebrow="FAQ" title="Questions, answered straight." />
-        <div className="mt-12 divide-y divide-border border-y border-border">
-          {qs.map((it, i) => (
-            <div key={it.q}>
-              <button
-                onClick={() => setOpen(open === i ? null : i)}
-                className="w-full flex items-center justify-between text-left py-6 group"
-              >
-                <span className="font-display text-lg group-hover:text-primary transition">
+        <div className="mt-12 border-t border-border">
+          <Accordion defaultValue={["item-0"]}>
+            {qs.map((it, i) => (
+              <AccordionItem key={it.q} value={`item-${i}`} className="border-b border-border">
+                <AccordionTrigger className="w-full flex items-center justify-between text-left py-6 font-display text-lg hover:text-primary transition hover:no-underline">
                   {it.q}
-                </span>
-                <span className="h-8 w-8 rounded-full border border-border grid place-items-center text-muted-foreground group-hover:border-primary group-hover:text-primary transition">
-                  {open === i ? (
-                    <Minus className="h-4 w-4" />
-                  ) : (
-                    <Plus className="h-4 w-4" />
-                  )}
-                </span>
-              </button>
-              <div
-                className={`grid transition-all duration-300 ${open === i ? "grid-rows-[1fr] pb-6 opacity-100" : "grid-rows-[0fr] opacity-0"}`}
-              >
-                <div className="overflow-hidden text-muted-foreground leading-relaxed space-y-4">
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-6 space-y-4">
                   {it.a.map((paragraph, pIdx) => (
                     <p key={pIdx}>{paragraph}</p>
                   ))}
-                </div>
-              </div>
-            </div>
-          ))}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </section>

@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="md:col-span-2">
           <div className="flex items-center gap-2">
             <div className="rounded-lg bg-linear-to-br from-primary to-accent grid place-items-center">
-              <Image src="/logo.jpg" alt="logo" width={50} height={50} />
+              <Image src="/logo.png" alt="logo" width={50} height={50} />
             </div>
             <span className="font-display font-semibold tracking-tight">
               NxtGen<span className="text-primary">.</span>

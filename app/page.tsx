@@ -13,6 +13,7 @@ import OutcomeRecipe from "./components/OutcomeRecipe";
 import Stories from "./components/Stories";
 import Trust from "./components/Trust";
 import WhyUs from "./components/WhyUs";
+import Faculty from "./components/Faculty";
 
 export default function Home() {
   return (
@@ -23,13 +24,14 @@ export default function Home() {
       <OutcomeRecipe />
       <Programs />
       <WhyUs />
+      <Faculty />
       <Journey />
       <Projects />
       <Stories />
+      <AlumniNetwork />
       <Curriculum />
       <Pricing />
       <FAQ />
-      <AlumniNetwork />
       <FinalCTA />
       <Footer />
     </div>
