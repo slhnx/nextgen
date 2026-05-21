@@ -102,7 +102,14 @@ export default function Hero() {
     const timer = setTimeout(() => {
       setIsDialogOpen(true);
     }, 4000); // Popup dialog after 4 seconds
-    return () => clearTimeout(timer);
+
+    const handleOpen = () => setIsDialogOpen(true);
+    window.addEventListener("open-signup-dialog", handleOpen);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("open-signup-dialog", handleOpen);
+    };
   }, []);
 
   return (

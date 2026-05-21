@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ArrowUpRight,
   BarChart3,
@@ -128,17 +130,16 @@ export default function Programs() {
                   </div>
                 </div>
 
-                <a
-                  href="/Nxtgen Final.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  type="button"
+                  onClick={() => window.dispatchEvent(new CustomEvent("open-signup-dialog"))}
                   className={`${buttonVariants({
                     variant: "link",
-                  })} mt-7 p-0 h-auto justify-start text-sm font-medium text-primary group/button hover:no-underline`}
+                  })} mt-7 p-0 h-auto justify-start text-sm font-medium text-primary group/button hover:no-underline cursor-pointer`}
                 >
                   View curriculum
                   <ArrowUpRight className="h-4 w-4 group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5 transition" />
-                </a>
+                </button>
               </CardContent>
             </Card>
           ))}
