@@ -7,12 +7,12 @@ export default function Nav() {
     <header className="fixed top-0 inset-x-0 z-50 px-4 pt-4">
       <div className="max-w-7xl mx-auto glass rounded-2xl px-5 py-3 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2">
-          <div className=" rounded-lg bg-linear-to-br from-primary to-accent grid place-items-center">
-            <Image src="/logo.png" alt="logo" width={50} height={50} />
+          <div className=" rounded-lg grid place-items-center">
+            <Image src="/logo.png" alt="logo" width={100} height={100} />
           </div>
-          <span className="font-display font-semibold tracking-tight">
+          {/* <span className="font-display font-semibold tracking-tight">
             NxtGen<span className="text-primary">.</span>
-          </span>
+          </span> */}
         </a>
         <nav className="hidden md:flex items-center gap-7 text-sm text-muted-foreground">
           <a href="#programs" className="hover:text-foreground transition">

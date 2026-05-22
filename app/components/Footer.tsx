@@ -6,12 +6,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
         <div className="md:col-span-2">
           <div className="flex items-center gap-2">
-            <div className="rounded-lg bg-linear-to-br from-primary to-accent grid place-items-center">
-              <Image src="/logo.png" alt="logo" width={50} height={50} />
+            <div className="rounded-lg grid place-items-center">
+              <Image src="/logo.png" alt="logo" width={100} height={100} />
             </div>
-            <span className="font-display font-semibold tracking-tight">
+            {/* <span className="font-display font-semibold tracking-tight">
               NxtGen<span className="text-primary">.</span>
-            </span>
+            </span> */}
           </div>
           <p className="mt-4 max-w-sm text-sm text-muted-foreground">
             AI-powered career transition academy for Analytics and Product
