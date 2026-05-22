@@ -5,7 +5,7 @@ const list = [
   { t: "Sales Dashboard", s: "Power BI", k: "Analytics", img: "/sales_dashboard.jpeg" },
   { t: "AI Resume Analyzer", s: "Python + LLM", k: "Gen AI", img: "/ai_resume_analyzer.jpeg" },
   { t: "Customer Churn Prediction", s: "Python · ML", k: "Data Science", img: "/customer_churn_predictions.jpeg" },
-  { t: "AI Product Case Study", s: "PM Stack", k: "Product", img: "" },
+  { t: "AI Product Case Study", s: "PM Stack", k: "Product", img: "/ai_product_case_study.jpeg" },
   { t: "E-commerce Analytics Dashboard", s: "SQL · Tableau", k: "Analytics", img: "/ecommer_analytics.jpeg" },
   { t: "AI Chatbot Workflow", s: "No-Code AI", k: "Automation", img: "/ai_chat_workflow.jpeg" },
   { t: "Marketing Performance Dashboard", s: "GA4 · BI", k: "Analytics", img: "/marketing_performance_dashboard.jpeg" },
