@@ -1,11 +1,12 @@
 import {
   ArrowUpRight,
-  Brain,
-  Briefcase,
-  GraduationCap,
+  Sparkles,
   Play,
-  Users,
-  Workflow,
+  MonitorPlay,
+  ClipboardList,
+  Contact,
+  FileText,
+  MonitorSmartphone,
 } from "lucide-react";
 import Image from "next/image";
 import SectionHeading from "./SectionHeading";
@@ -14,29 +15,34 @@ import { Button, buttonVariants } from "@/components/ui/button";
 
 const items = [
   {
-    icon: <Briefcase className="h-5 w-5" />,
-    t: "Industry-Focused Curriculum",
-    d: "Learn exactly what companies expect in modern AI and analytics roles.",
+    icon: <Sparkles className="h-5 w-5" />,
+    t: "Legal Job Guarantee Program",
+    d: "A clear, written agreement that guarantees real placement opportunities and supports your career growth completely.",
   },
   {
-    icon: <Brain className="h-5 w-5" />,
-    t: "Gen AI Integrated Learning",
-    d: "Master ChatGPT, AI workflows, automation, and AI productivity tools.",
+    icon: <MonitorPlay className="h-5 w-5" />,
+    t: "Proven Results",
+    d: "Thousands of students placed in tech roles through strong guidance, practical training, and industry-focused preparation.",
   },
   {
-    icon: <Workflow className="h-5 w-5" />,
-    t: "Live Industry Projects",
-    d: "Build portfolio-ready dashboards, AI automations, and analytics case studies.",
+    icon: <ClipboardList className="h-5 w-5" />,
+    t: "Job-Ready Curriculum",
+    d: "Up-to-date curriculum designed with industry needs so students learn practical, job-ready skills quickly.",
   },
   {
-    icon: <GraduationCap className="h-5 w-5" />,
-    t: "Placement Preparation",
-    d: "Resume building, LinkedIn optimization, mock interviews, and portfolio guidance.",
+    icon: <Contact className="h-5 w-5" />,
+    t: "1:1 Mentor Support",
+    d: "Learn directly from expert mentors employed at leading product-based companies who guide your progress every day.",
   },
   {
-    icon: <Users className="h-5 w-5" />,
-    t: "Mentorship from Industry Experts",
-    d: "Learn directly from professionals working in analytics and product domains.",
+    icon: <FileText className="h-5 w-5" />,
+    t: "Real-World Projects & Case Studies",
+    d: "Create a professional portfolio using real-world projects that help you stand out to hiring recruiters.",
+  },
+  {
+    icon: <MonitorSmartphone className="h-5 w-5" />,
+    t: "Alliances with Product Companies",
+    d: "Meaningful alliances with product companies to bridge skill development and real employment.",
   },
 ];
 
@@ -51,9 +57,9 @@ export default function WhyUs() {
           eyebrow="Why NxtGen"
           title="Why students choose NxtGen Academy"
         />
-        <div className="mt-16 grid lg:grid-cols-[minmax(0,1fr)_minmax(0,360px)] gap-8">
+        <div className="mt-16 grid lg:grid-cols-[1fr_minmax(0,360px)] gap-8">
           <div className="grid sm:grid-cols-2 gap-6">
-            {items.slice(0, 4).map((it) => (
+            {items.map((it) => (
               <Card
                 key={it.t}
                 className="rounded-2xl border border-border bg-card/40 p-7 hover:bg-card transition group/card gap-0 overflow-visible border-0 shadow-none ring-0"
@@ -72,7 +78,8 @@ export default function WhyUs() {
               </Card>
             ))}
           </div>
-          <div className="w-full max-w-md mx-auto">
+
+          <div className="w-full max-w-md mx-auto lg:max-w-none lg:sticky lg:top-24 lg:self-start">
             <Card className="rounded-2xl border border-border bg-card overflow-hidden gap-0 shadow-none ring-0 border-0">
               <CardContent className="p-0">
                 <div className="relative aspect-[4/5] bg-ink/50">
@@ -134,22 +141,22 @@ export default function WhyUs() {
                 </div>
               </CardContent>
             </Card>
+            <div className="mt-6 flex flex-col gap-4 items-start">
+              <p className="text-sm text-muted-foreground">
+                Get started on your journey towards unlocking hundreds of job
+                opportunities with NxtGen Academy.
+              </p>
+              <a
+                href="#cta"
+                className={`${buttonVariants({
+                  size: "lg",
+                })} rounded-xl px-6 py-3.5 h-auto font-medium hover:shadow-[0_0_40px_oklch(0.62_0.22_258/0.5)] transition group/button border-0`}
+              >
+                Request a Callback
+                <ArrowUpRight className="h-4 w-4 group-hover/button:rotate-45 transition" />
+              </a>
+            </div>
           </div>
-        </div>
-        <div className="mt-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <p className="text-sm text-muted-foreground max-w-xl">
-            Get started on your journey towards unlocking hundreds of job
-            opportunities with NxtGen Academy.
-          </p>
-          <a
-            href="#cta"
-            className={`${buttonVariants({
-              size: "lg",
-            })} rounded-xl px-6 py-3.5 h-auto font-medium hover:shadow-[0_0_40px_oklch(0.62_0.22_258/0.5)] transition group/button border-0`}
-          >
-            Request a Callback
-            <ArrowUpRight className="h-4 w-4 group-hover/button:rotate-45 transition" />
-          </a>
         </div>
       </div>
     </section>

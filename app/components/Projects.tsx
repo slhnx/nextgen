@@ -2,7 +2,7 @@ import Image from "next/image";
 import SectionHeading from "./SectionHeading";
 
 const list = [
-  { t: "Sales Dashboard", s: "Power BI", k: "Analytics", img: "/sales_dashboard.jpeg" },
+  { t: "Sales Dashboard", s: "Power BI", k: "Analytics", img: "/sales_dashboard.png" },
   { t: "AI Resume Analyzer", s: "Python + LLM", k: "Gen AI", img: "/ai_resume_analyzer.jpeg" },
   { t: "Customer Churn Prediction", s: "Python · ML", k: "Data Science", img: "/customer_churn_predictions.jpeg" },
   { t: "AI Product Case Study", s: "PM Stack", k: "Product", img: "/ai_product_case_study.jpeg" },
