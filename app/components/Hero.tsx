@@ -6,6 +6,15 @@ import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
 export default function Hero() {
+  const pills = [
+    { text: "AI Digital Marketing", Icon: MessageCircle, bg: "bg-green-100", fg: "text-green-600", pos: "left-6 top-[28%]" },
+    { text: "Generative AI", Icon: Code, bg: "bg-orange-100", fg: "text-orange-600", pos: "right-6 top-[35%]" },
+    { text: "AI Data Analytics", Icon: BarChart2, bg: "bg-blue-100", fg: "text-blue-600", pos: "left-2 top-[45%]" },
+    { text: "AI Data Science", Icon: Database, bg: "bg-yellow-100", fg: "text-yellow-600", pos: "right-4 bottom-[40%]" },
+    { text: "AI Product Management", Icon: Briefcase, bg: "bg-indigo-100", fg: "text-indigo-600", pos: "left-6 bottom-[25%]" },
+    { text: "Advanced Generative AI", Icon: Sparkles, bg: "bg-red-100", fg: "text-red-600", pos: "right-12 bottom-[15%]" },
+  ];
+
   return (
     <section className="relative min-h-screen pt-32 pb-20 flex items-center bg-background overflow-hidden">
       {/* Faint grid background - Left side only */}
@@ -68,7 +77,7 @@ export default function Hero() {
           </div>
 
           {/* Right Side Visuals */}
-          <div className="relative w-full h-[600px] lg:h-[700px] hidden md:block">
+          <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px]">
             <ScrollReveal direction="up" delay={400} className="w-full h-full">
               <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden bg-[#1A1B3A]">
                 {/* Person Image */}
@@ -81,7 +90,7 @@ export default function Hero() {
                 />
 
                 {/* Happy Students Badge */}
-                <div className="absolute top-8 left-8 bg-white rounded-2xl p-4 shadow-xl z-20">
+                <div className="absolute top-2 left-2 md:top-8 md:left-8 bg-white rounded-2xl p-2.5 md:p-4 shadow-xl z-20">
                   <div className="flex items-center mb-2">
                     <div className="flex -space-x-2 mr-3">
                       {[
@@ -103,55 +112,43 @@ export default function Hero() {
                 </div>
 
                 {/* Collaboration Text */}
-                <div className="absolute top-8 right-8 z-20 text-right">
+                <div className="absolute top-2 right-2 md:top-8 md:right-8 z-20 text-right">
                   <p className="text-[10px] font-medium text-white/80 mb-1">In collaboration with</p>
                   <div className="text-2xl font-black tracking-widest text-white">
                     IBM.
                   </div>
                 </div>
 
-                {/* Floating Pills */}
-                <div className="absolute left-6 top-[28%] bg-white rounded-full px-4 py-2.5 shadow-lg flex items-center gap-2.5 z-20">
-                  <div className="h-6 w-6 rounded-md bg-green-100 flex items-center justify-center text-green-600">
-                    <MessageCircle className="h-3.5 w-3.5" />
-                  </div>
-                  <span className="text-xs font-bold text-[#1A1A1A]">AI Digital Marketing</span>
+                {/* Mobile Pills Container (Aligned at the very bottom of the card) */}
+                <div className="absolute bottom-3 inset-x-3 flex flex-wrap gap-1.5 justify-center z-20 md:hidden">
+                  {pills.map((p, idx) => {
+                    const Icon = p.Icon;
+                    return (
+                      <div key={idx} className="bg-white rounded-full px-2 py-1 shadow-md flex items-center gap-1">
+                        <div className={`h-4.5 w-4.5 rounded-md ${p.bg} flex items-center justify-center ${p.fg} shrink-0`}>
+                          <Icon className="h-2.5 w-2.5" />
+                        </div>
+                        <span className="text-[9px] font-bold text-[#1A1A1A] whitespace-nowrap">{p.text}</span>
+                      </div>
+                    );
+                  })}
                 </div>
 
-                <div className="absolute right-6 top-[35%] bg-white rounded-full px-4 py-2.5 shadow-lg flex items-center gap-2.5 z-20">
-                  <div className="h-6 w-6 rounded-md bg-orange-100 flex items-center justify-center text-orange-600">
-                    <Code className="h-3.5 w-3.5" />
-                  </div>
-                  <span className="text-xs font-bold text-[#1A1A1A]">Generative AI</span>
-                </div>
-
-                <div className="absolute left-2 top-[45%] bg-white rounded-full px-4 py-2.5 shadow-lg flex items-center gap-2.5 z-20">
-                  <div className="h-6 w-6 rounded-md bg-blue-100 flex items-center justify-center text-blue-600">
-                    <BarChart2 className="h-3.5 w-3.5" />
-                  </div>
-                  <span className="text-xs font-bold text-[#1A1A1A]">AI Data Analytics</span>
-                </div>
-
-                <div className="absolute right-4 bottom-[40%] bg-white rounded-full px-4 py-2.5 shadow-lg flex items-center gap-2.5 z-20">
-                  <div className="h-6 w-6 rounded-md bg-yellow-100 flex items-center justify-center text-yellow-600">
-                    <Database className="h-3.5 w-3.5" />
-                  </div>
-                  <span className="text-xs font-bold text-[#1A1A1A]">AI Data Science</span>
-                </div>
-
-                <div className="absolute left-6 bottom-[25%] bg-white rounded-full px-4 py-2.5 shadow-lg flex items-center gap-2.5 z-20">
-                  <div className="h-6 w-6 rounded-md bg-indigo-100 flex items-center justify-center text-indigo-600">
-                    <Briefcase className="h-3.5 w-3.5" />
-                  </div>
-                  <span className="text-xs font-bold text-[#1A1A1A]">AI Product Management</span>
-                </div>
-
-                <div className="absolute right-12 bottom-[15%] bg-white rounded-full px-4 py-2.5 shadow-lg flex items-center gap-2.5 z-20">
-                  <div className="h-6 w-6 rounded-md bg-red-100 flex items-center justify-center text-red-600">
-                    <Sparkles className="h-3.5 w-3.5" />
-                  </div>
-                  <span className="text-xs font-bold text-[#1A1A1A]">Advanced Generative AI</span>
-                </div>
+                {/* Desktop Floating Pills */}
+                {pills.map((p, idx) => {
+                  const Icon = p.Icon;
+                  return (
+                    <div
+                      key={idx}
+                      className={`absolute ${p.pos} bg-white rounded-full px-4 py-2.5 shadow-lg hidden md:flex items-center gap-2.5 z-20`}
+                    >
+                      <div className={`h-6 w-6 rounded-md ${p.bg} flex items-center justify-center ${p.fg}`}>
+                        <Icon className="h-3.5 w-3.5" />
+                      </div>
+                      <span className="text-xs font-bold text-[#1A1A1A]">{p.text}</span>
+                    </div>
+                  );
+                })}
 
               </div>
             </ScrollReveal>
