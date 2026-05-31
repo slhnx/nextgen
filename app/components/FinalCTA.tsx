@@ -43,9 +43,15 @@ export default function FinalCTA() {
               {/* Avatars floating badge */}
               <div className="absolute top-1/3 left-0 md:-left-12 z-20 flex items-center bg-[#1A1A1A]/80 backdrop-blur-md rounded-full p-1.5 border border-white/10 shadow-xl">
                 <div className="flex -space-x-3 ml-1">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <div key={i} className="h-8 w-8 rounded-full border-2 border-[#1A1A1A] bg-secondary overflow-hidden">
-                      <Image src="/logo.jpg" alt="Student" width={32} height={32} className="object-cover" />
+                  {[
+                    "/faculty/bhavesh.png",
+                    "/faculty/gladden.png",
+                    "/faculty/rahul.png",
+                    "/faculty/rohit.png",
+                    "/faculty/vishal.png"
+                  ].map((src, idx) => (
+                    <div key={idx} className="h-8 w-8 rounded-full border-2 border-[#1A1A1A] bg-secondary overflow-hidden">
+                      <Image src={src} alt={`Student ${idx + 1}`} width={32} height={32} className="object-cover h-full w-full" />
                     </div>
                   ))}
                 </div>
