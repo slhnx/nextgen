@@ -108,7 +108,7 @@ export default function Programs() {
                       {p.icon}
                     </div>
                     
-                    <h3 className="mt-6 font-display text-2xl font-bold leading-tight text-foreground group-hover:text-primary transition-colors duration-300">
+                    <h3 className="mt-6 font-heading text-2xl font-medium leading-tight text-foreground group-hover:text-primary transition-colors duration-300">
                       {p.title}
                     </h3>
 

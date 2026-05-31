@@ -26,7 +26,7 @@ export default function SectionHeading({
       </ScrollReveal>
       
       <ScrollReveal direction="up" delay={200}>
-        <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] font-semibold text-foreground tracking-tight">
+        <h2 className="mt-6 font-heading text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] font-medium text-foreground tracking-tight">
           {title}
         </h2>
       </ScrollReveal>

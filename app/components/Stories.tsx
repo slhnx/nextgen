@@ -37,10 +37,10 @@ export default function Stories() {
             <ScrollReveal key={p.n} direction="up" delay={i * 150}>
               <article className="card-premium p-8 flex flex-col group h-full">
                 <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary/40 to-primary/10 border border-primary/20 flex items-center justify-center font-display font-bold text-foreground">
+                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary/40 to-primary/10 border border-primary/20 flex items-center justify-center font-heading font-medium text-foreground">
                     {p.n.charAt(0)}
                   </div>
-                  <div className="font-display font-bold text-xl text-foreground">{p.n}</div>
+                  <div className="font-heading font-medium text-xl text-foreground">{p.n}</div>
                 </div>
                 
                 <div className="mt-8 pt-8 border-t border-border/50 flex-grow flex flex-col justify-center">
@@ -58,7 +58,7 @@ export default function Stories() {
                       <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary font-semibold mb-1 flex items-center gap-2">
                         To <ArrowRight className="h-3 w-3" />
                       </div>
-                      <div className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300">{p.t}</div>
+                      <div className="text-lg font-medium text-foreground group-hover:text-primary transition-colors duration-300">{p.t}</div>
                     </div>
                   </div>
                 </div>

@@ -64,7 +64,7 @@ export default function Curriculum() {
                   <div className="h-10 w-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-mono text-sm font-bold border border-primary/20 shadow-sm group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                     0{idx + 1}
                   </div>
-                  <h4 className="font-display text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">{s.t}</h4>
+                  <h4 className="font-heading text-2xl font-medium text-foreground group-hover:text-primary transition-colors duration-300">{s.t}</h4>
                 </div>
                 
                 <ul className="space-y-4">

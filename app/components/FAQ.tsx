@@ -197,7 +197,7 @@ export default function FAQ() {
                   value={`item-${i}`}
                   className="border-b border-border/50 last:border-0"
                 >
-                  <AccordionTrigger className="w-full flex items-center justify-between text-left py-6 font-display text-lg sm:text-xl font-semibold hover:text-primary transition-colors hover:no-underline group">
+                  <AccordionTrigger className="w-full flex items-center justify-between text-left py-6 font-heading text-lg sm:text-xl font-medium hover:text-primary transition-colors hover:no-underline group">
                     {it.q}
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground text-base leading-relaxed pb-8 space-y-4 pr-6">

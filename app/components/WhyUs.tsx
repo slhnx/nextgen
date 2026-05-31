@@ -81,7 +81,7 @@ export default function WhyUs() {
                         {String(i + 1).padStart(2, '0')}
                       </span>
                     </div>
-                    <h4 className="font-display text-lg font-bold text-foreground group-hover/card:text-primary transition-colors">
+                    <h4 className="font-display text-lg font-medium text-foreground group-hover/card:text-primary transition-colors">
                       {it.t}
                     </h4>
                     <p className="mt-3 text-sm text-muted-foreground leading-relaxed font-medium">
@@ -131,7 +131,7 @@ export default function WhyUs() {
                 <div className="p-6 bg-card border-t border-border/50">
                   <div className="flex items-start justify-between gap-3">
                     <div>
-                      <div className="font-display font-bold text-xl text-foreground">
+                      <div className="font-display font-medium text-xl text-foreground">
                         Aman Kumar
                       </div>
                       <div className="text-sm font-medium text-muted-foreground mt-1">

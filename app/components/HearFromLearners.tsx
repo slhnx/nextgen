@@ -87,7 +87,7 @@ export default function HearFromLearners() {
               {item.initials}
             </div>
             <div>
-              <h4 className="font-display font-semibold text-xs text-slate-900 group-hover:text-indigo-600 transition-colors">
+              <h4 className="font-heading font-medium text-xs text-slate-900 group-hover:text-indigo-600 transition-colors">
                 {item.name}
               </h4>
               <p className="text-[10px] text-slate-500 font-medium mt-0.5 line-clamp-1">

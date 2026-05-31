@@ -32,7 +32,7 @@ export default function OutcomeRecipe() {
                   <span className="inline-flex items-center rounded-full border border-amber-400/30 bg-amber-500/10 px-3 py-1 text-[11px] font-mono uppercase tracking-widest text-amber-300 shadow-sm transition-colors group-hover:bg-amber-500/20 group-hover:border-amber-400/50">
                     Access 3000+ Companies
                   </span>
-                  <h3 className="mt-6 font-display text-2xl font-bold text-foreground">
+                  <h3 className="mt-6 font-heading text-2xl font-medium text-foreground">
                     Get Referrals
                   </h3>
                   <p className="mt-3 text-base text-muted-foreground leading-relaxed">
@@ -68,7 +68,7 @@ export default function OutcomeRecipe() {
                   <span className="inline-flex items-center rounded-full border border-sky-400/30 bg-sky-500/10 px-3 py-1 text-[11px] font-mono uppercase tracking-widest text-sky-300 shadow-sm transition-colors group-hover:bg-sky-500/20 group-hover:border-sky-400/50">
                     Tailored Interview Prep
                   </span>
-                  <h3 className="mt-6 font-display text-2xl font-bold text-foreground">
+                  <h3 className="mt-6 font-heading text-2xl font-medium text-foreground">
                     Company-Specific Prep
                   </h3>
                   <p className="mt-3 text-base text-muted-foreground leading-relaxed">
@@ -105,7 +105,7 @@ export default function OutcomeRecipe() {
                   <span className="inline-flex items-center rounded-full border border-violet-400/30 bg-violet-500/10 px-3 py-1 text-[11px] font-mono uppercase tracking-widest text-violet-300 shadow-sm transition-colors group-hover:bg-violet-500/20 group-hover:border-violet-400/50">
                     Interactive Coding Sessions
                   </span>
-                  <h3 className="mt-6 font-display text-2xl font-bold text-foreground">
+                  <h3 className="mt-6 font-heading text-2xl font-medium text-foreground">
                     Live Coding Practice
                   </h3>
                   <p className="mt-3 text-base text-muted-foreground leading-relaxed">
@@ -145,7 +145,7 @@ export default function OutcomeRecipe() {
                   <span className="inline-flex items-center rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3 py-1 text-[11px] font-mono uppercase tracking-widest text-emerald-300 shadow-sm transition-colors group-hover:bg-emerald-500/20 group-hover:border-emerald-400/50">
                     Lifetime Placement Assurance
                   </span>
-                  <h3 className="mt-6 font-display text-2xl font-bold text-foreground">
+                  <h3 className="mt-6 font-heading text-2xl font-medium text-foreground">
                     Career Support
                   </h3>
                   <p className="mt-3 text-base text-muted-foreground leading-relaxed">

@@ -94,7 +94,7 @@ export default function Pricing() {
                 
                 <div className="relative z-10">
                   <CardHeader className="p-0 gap-2">
-                    <CardTitle className={`font-display text-2xl font-bold ${pl.featured ? "text-primary" : "text-foreground"}`}>
+                    <CardTitle className={`font-heading text-2xl font-medium ${pl.featured ? "text-primary" : "text-foreground"}`}>
                       {pl.n}
                     </CardTitle>
                     <CardDescription className="text-sm font-medium text-muted-foreground leading-relaxed h-10">
@@ -104,7 +104,7 @@ export default function Pricing() {
                   
                   <CardContent className="p-0 mt-8">
                     <div className="flex items-baseline gap-1">
-                      <span className="font-display text-5xl font-bold text-foreground tracking-tight">
+                      <span className="font-heading text-5xl font-medium text-foreground tracking-tight">
                         ₹{pl.p}
                       </span>
                     </div>

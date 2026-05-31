@@ -91,13 +91,13 @@ export default function AlumniNetwork() {
                       >
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_oklch(0.97_0.005_250/0.1),_transparent_60%)]" />
                         <div className="absolute inset-0 grid-pattern opacity-20 mix-blend-overlay" />
-                        <div className="absolute left-6 -bottom-6 h-16 w-16 rounded-2xl bg-card border border-border/80 shadow-md grid place-items-center text-xl font-display font-bold text-foreground group-hover:scale-105 group-hover:-translate-y-1 transition-transform duration-300">
+                        <div className="absolute left-6 -bottom-6 h-16 w-16 rounded-2xl bg-card border border-border/80 shadow-md grid place-items-center text-xl font-heading font-medium text-foreground group-hover:scale-105 group-hover:-translate-y-1 transition-transform duration-300">
                           {getInitials(person.name)}
                         </div>
                       </div>
                       
                       <div className="px-6 pb-2 pt-10 relative">
-                        <div className="font-display font-bold text-lg text-foreground line-clamp-1 group-hover:text-primary transition-colors">
+                        <div className="font-heading font-medium text-lg text-foreground line-clamp-1 group-hover:text-primary transition-colors">
                           {person.name}
                         </div>
                         <div className="text-sm font-medium text-muted-foreground line-clamp-1 mt-1">

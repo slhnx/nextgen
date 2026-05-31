@@ -47,7 +47,7 @@ export default function Journey() {
                       </span>
                     </div>
                     
-                    <h4 className="mt-5 font-display text-xl sm:text-2xl font-bold leading-tight text-foreground group-hover:text-primary transition-colors duration-300">
+                    <h4 className="mt-5 font-display text-xl sm:text-2xl font-medium leading-tight text-foreground group-hover:text-primary transition-colors duration-300">
                       {s}
                     </h4>
                   </div>

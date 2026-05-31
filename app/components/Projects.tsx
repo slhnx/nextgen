@@ -60,7 +60,7 @@ export default function Projects() {
                   </div>
                   
                   <div className="translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    <h4 className="font-display text-xl sm:text-2xl font-bold leading-tight text-white drop-shadow-md">
+                    <h4 className="font-heading text-xl sm:text-2xl font-medium leading-tight text-white drop-shadow-md">
                       {p.t}
                     </h4>
                     <div className="mt-3 flex items-center gap-2">

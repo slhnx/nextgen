@@ -16,7 +16,7 @@ export default function FinalCTA() {
 
             {/* Left Content */}
             <div className="relative z-10 p-10 sm:p-14 md:p-16 flex-1 flex flex-col justify-center">
-              <h2 className="font-display text-[clamp(2rem,4vw,3rem)] leading-[1.1] font-semibold text-foreground mb-6 max-w-xl">
+              <h2 className="font-heading text-[clamp(2rem,4vw,3rem)] leading-[1.1] font-medium text-foreground mb-6 max-w-xl">
                 Take First Step Towards Your AI Career Before It's Too Late
               </h2>
               

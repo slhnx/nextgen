@@ -130,7 +130,7 @@ export default function Faculty() {
                 <div className="p-6 flex flex-col flex-grow relative z-20">
                   <div className="flex items-start justify-between">
                     <div>
-                      <h3 className="font-display font-bold text-xl text-foreground group-hover:text-primary transition-colors">
+                      <h3 className="font-display font-medium text-xl text-foreground group-hover:text-primary transition-colors">
                         {f.name}
                       </h3>
                       <p className="mt-1 text-sm text-muted-foreground font-medium">

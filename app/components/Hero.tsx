@@ -1,13 +1,28 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import {
+  ArrowUpRight,
+  Flame,
+  Star,
+  Building2,
+  GraduationCap,
+  TrendingUp,
+  Users,
+  Sparkles,
+} from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { ArrowUpRight, MessageCircle, BarChart2, Briefcase, Sparkles, Database, Code, BookOpen } from "lucide-react";
-import Image from "next/image";
-import ScrollReveal from "./ScrollReveal";
+
+const stats = [
+  { label: "Companies Hiring", value: "800+", icon: Building2 },
+  { label: "Students Placed", value: "1,500+", icon: GraduationCap },
+  { label: "Highest Package", value: "48 LPA", icon: TrendingUp },
+  { label: "Industry Experts", value: "1200+", icon: Users },
+  { label: "Highest Salary Hike", value: "400%", icon: Sparkles },
+];
 
 function SignUpForm({ idPrefix = "" }: { idPrefix?: string }) {
   return (
@@ -86,7 +101,7 @@ export default function Hero() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsDialogOpen(true);
-    }, 2000);
+    }, 4000); // Popup dialog after 4 seconds
 
     const handleOpen = () => setIsDialogOpen(true);
     window.addEventListener("open-signup-dialog", handleOpen);
@@ -97,18 +112,8 @@ export default function Hero() {
     };
   }, []);
 
-  const pills = [
-    { text: "AI Digital Marketing", Icon: MessageCircle, bg: "bg-green-100", fg: "text-green-600", pos: "left-6 top-[28%]" },
-    { text: "Generative AI", Icon: Code, bg: "bg-orange-100", fg: "text-orange-600", pos: "right-6 top-[35%]" },
-    { text: "AI Data Analytics", Icon: BarChart2, bg: "bg-blue-100", fg: "text-blue-600", pos: "left-2 top-[45%]" },
-    { text: "AI Data Science", Icon: Database, bg: "bg-yellow-100", fg: "text-yellow-600", pos: "right-4 bottom-[40%]" },
-    { text: "AI Product Management", Icon: Briefcase, bg: "bg-indigo-100", fg: "text-indigo-600", pos: "left-6 bottom-[25%]" },
-    { text: "Advanced Generative AI", Icon: Sparkles, bg: "bg-red-100", fg: "text-red-600", pos: "right-12 bottom-[15%]" },
-  ];
-
   return (
-    <section className="relative min-h-screen pt-32 pb-20 flex items-center bg-background overflow-hidden">
-      {/* Background Video */}
+    <section id="top" className="relative pt-36 pb-24 px-4 overflow-hidden">
       <video
         autoPlay
         loop
@@ -119,142 +124,98 @@ export default function Hero() {
         <source src="/hero_bg_video.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-background/85 z-0" />
-      {/* Faint grid background - Left side only */}
-      <div className="absolute left-0 top-0 bottom-0 w-full lg:w-1/2 overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_100%_100%_at_0%_50%,#000_40%,transparent_100%)] pointer-events-none" />
-        
-        {/* Animated Blue Lines */}
-        <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_100%_100%_at_0%_50%,#000_40%,transparent_100%)] pointer-events-none">
-          <div className="absolute top-0 left-[120px] w-[1px] h-full bg-gradient-to-b from-transparent via-primary to-transparent opacity-50 animate-line-down-1" />
-          <div className="absolute top-0 left-[280px] w-[1px] h-full bg-gradient-to-b from-transparent via-primary to-transparent opacity-50 animate-line-down-2" />
-          <div className="absolute top-0 left-[440px] w-[1px] h-full bg-gradient-to-b from-transparent via-primary to-transparent opacity-50 animate-line-down-3" />
-          
-          <div className="absolute top-[200px] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 animate-line-right-1" />
-          <div className="absolute top-[400px] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 animate-line-right-2" />
-          <div className="absolute top-[600px] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 animate-line-right-3" />
+      <div className="absolute inset-0 grid-pattern opacity-30 z-0 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent z-0 pointer-events-none" />
+      
+      <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="max-w-4xl">
+          <div>
+            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.3em] text-amber-400 mb-8">
+              <Flame className="h-3.5 w-3.5" />
+              Learn what matters
+            </div>
+
+            <h1 className="font-heading text-[clamp(2.6rem,7vw,6rem)] leading-[1.05] font-medium max-w-5xl text-foreground">
+              Build your career in{" "}
+              <span className="text-primary font-heading font-medium py-2">AI & Analytics</span>
+            </h1>
+
+            <p className="mt-8 text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+              Equip yourself with the tools, projects, and mentorship needed to land high-paying roles. Join our expert-led cohorts today.
+            </p>
+
+            <div className="mt-10 flex flex-wrap gap-4">
+              <a
+                href="#pricing"
+                className={`${buttonVariants({
+                  size: "lg",
+                })} rounded-xl px-6 py-3.5 h-auto font-medium hover:shadow-[0_0_40px_oklch(0.62_0.22_258/0.5)] transition duration-300`}
+              >
+                Explore Cohorts <ArrowUpRight className="h-4 w-4 ml-1.5" />
+              </a>
+              <a
+                href="#curriculum"
+                className={`${buttonVariants({
+                  variant: "outline",
+                  size: "lg",
+                })} rounded-xl px-6 py-3.5 h-auto font-medium bg-card/40 hover:bg-card/80 transition duration-300`}
+              >
+                View Curriculum
+              </a>
+            </div>
+
+            <div className="mt-6 flex flex-col items-start gap-y-5 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 mt-6 mb-8">
+                <Flame className="h-4 w-4 text-amber-400" />
+                <span className="font-medium text-foreground">5K+</span>
+                <span>Students Already Enrolled</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-2xl font-semibold text-foreground">
+                  4.8/5
+                </span>
+                <div className="flex items-center gap-1">
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <Star
+                      key={index}
+                      className="h-4 w-4 text-amber-400"
+                      fill={index < 4 ? "currentColor" : "none"}
+                    />
+                  ))}
+                </div>
+                <span>from 1500+ reviews</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div className="max-w-[1400px] mx-auto w-full px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          
-          {/* Left Side Content */}
-          <div className="max-w-xl">
-            <ScrollReveal direction="up" delay={100}>
-              <h1 className="text-[clamp(3.5rem,6vw,4.5rem)] leading-[1.1] font-bold tracking-tight text-foreground mb-6">
-                Stop Using AI.<br />
-                Start <span className="text-primary">Building</span> With It.
-              </h1>
-            </ScrollReveal>
-
-            <ScrollReveal direction="up" delay={200}>
-              <p className="text-lg md:text-xl text-muted-foreground mb-12 leading-relaxed font-medium max-w-md">
-                AI Courses in India For Working Professionals, Freshers and Business Owners. Focusing on project and real career outcomes.
-              </p>
-            </ScrollReveal>
-
-            <ScrollReveal direction="up" delay={300}>
-              <div className="flex flex-col sm:flex-row items-center gap-4">
-                <a
-                  href="#programs"
-                  className={`${buttonVariants({
-                    size: "lg",
-                  })} rounded-full px-8 py-7 h-auto text-base font-semibold w-full sm:w-auto hover:bg-primary/90 transition-all duration-300`}
-                >
-                  Explore Our Programs
-                </a>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5 mt-24">
+          {stats.map((stat) => {
+            const Icon = stat.icon;
+            return (
+              <div
+                key={stat.label}
+                className="group relative overflow-hidden rounded-2xl border border-border/50 bg-card/25 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:bg-card/45 hover:shadow-[0_12px_30px_-10px_oklch(0.62_0.22_258/0.2)] last:sm:col-span-2 last:lg:col-span-1"
+              >
+                <div className="absolute -right-8 -bottom-8 h-24 w-24 rounded-full bg-primary/5 blur-xl transition-all duration-500 group-hover:bg-primary/15 group-hover:scale-150" />
                 
-                <a
-                  href="#curriculum"
-                  className={`${buttonVariants({
-                    variant: "outline",
-                    size: "lg",
-                  })} rounded-full px-8 py-7 h-auto text-base font-semibold w-full sm:w-auto bg-transparent border-border/80 hover:bg-card transition-all duration-300`}
-                >
-                  <BookOpen className="w-5 h-5 mr-2" />
-                  View Curriculum
-                </a>
-              </div>
-            </ScrollReveal>
-          </div>
-
-          {/* Right Side Visuals */}
-          <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px]">
-            <ScrollReveal direction="up" delay={400} className="w-full h-full">
-              <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden bg-[#1A1B3A]">
-                {/* Person Image */}
-                <Image 
-                  src="/hero-man.png" 
-                  alt="Student" 
-                  fill 
-                  className="object-cover object-top"
-                  priority
-                />
-
-                {/* Happy Students Badge */}
-                <div className="absolute top-2 left-2 md:top-8 md:left-8 bg-white rounded-2xl p-2.5 md:p-4 shadow-xl z-20">
-                  <div className="flex items-center mb-2">
-                    <div className="flex -space-x-2 mr-3">
-                      {[
-                        "/faculty/bhavesh.png",
-                        "/faculty/gladden.png",
-                        "/faculty/rahul.png",
-                        "/faculty/rohit.png"
-                      ].map((src, idx) => (
-                        <div key={idx} className="h-8 w-8 rounded-full border-2 border-white bg-secondary overflow-hidden">
-                          <Image src={src} alt={`Student ${idx + 1}`} width={32} height={32} className="object-cover h-full w-full" />
-                        </div>
-                      ))}
-                      <div className="h-8 w-8 rounded-full border-2 border-white bg-[#1A1A1A] text-white flex items-center justify-center text-[10px] font-bold z-10">
-                        1998+
-                      </div>
-                    </div>
+                <div className="flex items-start justify-between gap-4">
+                  <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">
+                    {stat.label}
                   </div>
-                  <p className="text-xs font-semibold text-[#1A1A1A]">Happy Students</p>
-                </div>
-
-                {/* Collaboration Text */}
-                <div className="absolute top-2 right-2 md:top-8 md:right-8 z-20 text-right">
-                  <p className="text-[10px] font-medium text-white/80 mb-1">In collaboration with</p>
-                  <div className="text-2xl font-black tracking-widest text-white">
-                    IBM.
+                  <div className="rounded-lg bg-primary/5 p-2 text-primary border border-primary/10 group-hover:bg-primary/15 group-hover:text-primary-foreground group-hover:border-primary/30 transition-all duration-300 shrink-0">
+                    <Icon className="h-4 w-4" />
                   </div>
                 </div>
-
-                {/* Mobile Pills Container (Aligned at the very bottom of the card) */}
-                <div className="absolute bottom-3 inset-x-3 flex flex-wrap gap-1.5 justify-center z-20 md:hidden">
-                  {pills.map((p, idx) => {
-                    const Icon = p.Icon;
-                    return (
-                      <div key={idx} className="bg-white rounded-full px-2 py-1 shadow-md flex items-center gap-1">
-                        <div className={`h-4.5 w-4.5 rounded-md ${p.bg} flex items-center justify-center ${p.fg} shrink-0`}>
-                          <Icon className="h-2.5 w-2.5" />
-                        </div>
-                        <span className="text-[9px] font-bold text-[#1A1A1A] whitespace-nowrap">{p.text}</span>
-                      </div>
-                    );
-                  })}
+                
+                <div className="mt-6">
+                  <div className="text-3xl md:text-4xl font-heading font-medium tracking-tight transition-all duration-300 group-hover:translate-x-1">
+                    {stat.value}
+                  </div>
                 </div>
-
-                {/* Desktop Floating Pills */}
-                {pills.map((p, idx) => {
-                  const Icon = p.Icon;
-                  return (
-                    <div
-                      key={idx}
-                      className={`absolute ${p.pos} bg-white rounded-full px-4 py-2.5 shadow-lg hidden md:flex items-center gap-2.5 z-20`}
-                    >
-                      <div className={`h-6 w-6 rounded-md ${p.bg} flex items-center justify-center ${p.fg}`}>
-                        <Icon className="h-3.5 w-3.5" />
-                      </div>
-                      <span className="text-xs font-bold text-[#1A1A1A]">{p.text}</span>
-                    </div>
-                  );
-                })}
-
               </div>
-            </ScrollReveal>
-          </div>
+            );
+          })}
         </div>
       </div>
 
@@ -263,7 +224,7 @@ export default function Hero() {
           <div className="relative">
             <div className="pointer-events-none absolute -top-10 right-6 h-24 w-24 rounded-full bg-primary/30 blur-3xl" />
             <DialogHeader>
-              <DialogTitle className="text-center font-display text-xl font-semibold text-foreground">
+              <DialogTitle className="text-center font-heading text-xl font-medium text-foreground">
                 Book a Live Class, For Free!
               </DialogTitle>
             </DialogHeader>
