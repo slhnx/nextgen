@@ -13,7 +13,9 @@ import OutcomeRecipe from "./components/OutcomeRecipe";
 import Stories from "./components/Stories";
 import Trust from "./components/Trust";
 import WhyUs from "./components/WhyUs";
+import HearFromLearners from "./components/HearFromLearners";
 import Faculty from "./components/Faculty";
+import AISkillGap from "./components/AISkillGap";
 
 export default function Home() {
   return (
@@ -24,6 +26,8 @@ export default function Home() {
       <OutcomeRecipe />
       <Programs />
       <WhyUs />
+      <HearFromLearners />
+      <AISkillGap />
       <Faculty />
       <Journey />
       <Projects />
@@ -37,3 +41,4 @@ export default function Home() {
     </div>
   );
 }
+
