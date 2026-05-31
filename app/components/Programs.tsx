@@ -10,6 +10,7 @@ import {
 import SectionHeading from "./SectionHeading";
 import { Card, CardContent } from "@/components/ui/card";
 import { buttonVariants } from "@/components/ui/button";
+import ScrollReveal from "./ScrollReveal";
 
 const programs = [
   {
@@ -77,71 +78,84 @@ const programs = [
 
 export default function Programs() {
   return (
-    <section id="programs" className="py-28 px-4">
-      <div className="max-w-7xl mx-auto">
-        <SectionHeading eyebrow="Programs" title="Our Flagship Programs" />
-        <div className="mt-16 grid lg:grid-cols-3 gap-5">
-          {programs.map((p) => (
-            <Card
-              key={p.title}
-              className="glow-border rounded-2xl bg-card p-7 flex flex-col hover:translate-y-[-4px] transition duration-500 border-0 gap-0 shadow-none ring-0 overflow-visible"
-            >
-              <CardContent className="p-0 flex flex-col h-full justify-between">
-                <div>
-                  <div className="flex items-center justify-between text-xs font-mono uppercase tracking-widest text-muted-foreground">
-                    <span>{p.tag}</span>
-                    <span className="text-accent">{p.duration}</span>
-                  </div>
-                  <div className="mt-6 h-12 w-12 rounded-xl bg-primary/15 text-primary grid place-items-center">
-                    {p.icon}
-                  </div>
-                  <h3 className="mt-5 font-display text-2xl font-semibold leading-tight text-foreground">
-                    {p.title}
-                  </h3>
+    <section id="programs" className="py-32 px-4 relative">
+      <div className="section-divider" />
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        <SectionHeading 
+          eyebrow="Programs" 
+          title="Our Flagship Programs" 
+          subtitle="Master high-demand skills with our comprehensive, industry-aligned curriculums designed for the modern AI era."
+        />
+        
+        <div className="mt-20 grid lg:grid-cols-3 gap-6 md:gap-8">
+          {programs.map((p, i) => (
+            <ScrollReveal key={p.title} direction="up" delay={i * 150}>
+              <Card
+                className="card-premium h-full group"
+              >
+                {/* Top subtle gradient border effect */}
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <CardContent className="p-8 flex flex-col h-full justify-between relative z-10">
+                  <div>
+                    <div className="flex items-center justify-between text-[11px] font-mono uppercase tracking-[0.2em] text-muted-foreground group-hover:text-foreground/80 transition-colors">
+                      <span>{p.tag}</span>
+                      <span className="text-accent font-semibold">{p.duration}</span>
+                    </div>
+                    
+                    <div className="mt-8 h-14 w-14 rounded-2xl bg-primary/10 text-primary grid place-items-center border border-primary/20 shadow-sm group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500">
+                      {p.icon}
+                    </div>
+                    
+                    <h3 className="mt-6 font-display text-2xl font-bold leading-tight text-foreground group-hover:text-primary transition-colors duration-300">
+                      {p.title}
+                    </h3>
 
-                  <div className="mt-6">
-                    <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3">
-                      {"You'll learn"}
-                    </p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {p.stack.map((s) => (
-                        <span
-                          key={s}
-                          className="text-xs px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground border border-border"
-                        >
-                          {s}
-                        </span>
-                      ))}
+                    <div className="mt-8">
+                      <p className="text-[11px] font-mono uppercase tracking-[0.15em] text-muted-foreground mb-4 font-semibold">
+                        {"You'll learn"}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {p.stack.map((s) => (
+                          <span
+                            key={s}
+                            className="text-xs px-3 py-1.5 rounded-lg bg-background/80 text-foreground border border-border/80 shadow-sm group-hover:border-primary/20 transition-colors"
+                          >
+                            {s}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="mt-8 pt-8 border-t border-border/50">
+                      <p className="text-[11px] font-mono uppercase tracking-[0.15em] text-muted-foreground mb-4 font-semibold">
+                        Career roles
+                      </p>
+                      <ul className="space-y-2.5 text-sm">
+                        {p.roles.map((r) => (
+                          <li key={r} className="flex items-start gap-3 text-foreground/90 group-hover:text-foreground transition-colors">
+                            <CheckCircle2 className="h-4 w-4 text-accent shrink-0 mt-0.5" />
+                            <span className="leading-tight">{r}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
 
-                  <div className="mt-6 pt-6 border-t border-border">
-                    <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3">
-                      Career roles
-                    </p>
-                    <ul className="space-y-1.5 text-sm">
-                      {p.roles.map((r) => (
-                        <li key={r} className="flex items-center gap-2 text-foreground">
-                          <CheckCircle2 className="h-3.5 w-3.5 text-accent" />
-                          {r}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => window.dispatchEvent(new CustomEvent("open-signup-dialog"))}
-                  className={`${buttonVariants({
-                    variant: "link",
-                  })} mt-7 p-0 h-auto justify-start text-sm font-medium text-primary group/button hover:no-underline cursor-pointer`}
-                >
-                  View curriculum
-                  <ArrowUpRight className="h-4 w-4 group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5 transition" />
-                </button>
-              </CardContent>
-            </Card>
+                  <button
+                    type="button"
+                    onClick={() => window.dispatchEvent(new CustomEvent("open-signup-dialog"))}
+                    className={`${buttonVariants({
+                      variant: "outline",
+                    })} mt-10 w-full h-auto py-3.5 justify-center text-sm font-medium border-border/80 bg-background/50 hover:bg-primary hover:text-primary-foreground hover:border-primary group/button cursor-pointer transition-all duration-300 rounded-xl shadow-sm`}
+                  >
+                    View curriculum
+                    <ArrowUpRight className="h-4 w-4 ml-2 group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5 transition-transform" />
+                  </button>
+                </CardContent>
+              </Card>
+            </ScrollReveal>
           ))}
         </div>
       </div>

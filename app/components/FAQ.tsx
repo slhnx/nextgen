@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/accordion";
 import SectionHeading from "./SectionHeading";
 import { ChevronDown } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 const qs = [
   {
@@ -179,54 +180,55 @@ export default function FAQ() {
   const visibleQs = showAll ? qs : qs.slice(0, INITIAL_VISIBLE);
 
   return (
-    <section id="faq" className="py-28 px-4">
-      <div className="max-w-4xl mx-auto">
+    <section id="faq" className="py-32 px-4 relative">
+      <div className="section-divider" />
+      <div className="max-w-4xl mx-auto relative z-10">
         <SectionHeading
           eyebrow="FAQ"
           title="We've answered the most common queries."
+          subtitle="Everything you need to know about our programs, placement support, and learning experience — so you can get started with confidence."
         />
-        <p className="mt-4 text-muted-foreground text-base max-w-2xl leading-relaxed">
-          Everything you need to know about our programs, placement support, and
-          learning experience — so you can get started with confidence.
-        </p>
 
-        <div className="mt-12 border-t border-border">
+        <div className="mt-16 bg-card/20 backdrop-blur-sm border border-border/50 rounded-3xl p-6 sm:p-10">
           <Accordion defaultValue={["item-0"]}>
             {visibleQs.map((it, i) => (
-              <AccordionItem
-                key={it.q}
-                value={`item-${i}`}
-                className="border-b border-border"
-              >
-                <AccordionTrigger className="w-full flex items-center justify-between text-left py-6 font-display text-lg hover:text-primary transition hover:no-underline">
-                  {it.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed pb-6 space-y-4">
-                  {it.a.map((paragraph, pIdx) => (
-                    <p key={pIdx} className="whitespace-pre-line">
-                      {paragraph}
-                    </p>
-                  ))}
-                </AccordionContent>
-              </AccordionItem>
+              <ScrollReveal key={it.q} direction="up" delay={i * 50}>
+                <AccordionItem
+                  value={`item-${i}`}
+                  className="border-b border-border/50 last:border-0"
+                >
+                  <AccordionTrigger className="w-full flex items-center justify-between text-left py-6 font-display text-lg sm:text-xl font-semibold hover:text-primary transition-colors hover:no-underline group">
+                    {it.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-base leading-relaxed pb-8 space-y-4 pr-6">
+                    {it.a.map((paragraph, pIdx) => (
+                      <p key={pIdx} className="whitespace-pre-line font-medium">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </AccordionContent>
+                </AccordionItem>
+              </ScrollReveal>
             ))}
           </Accordion>
         </div>
 
-        <div className="mt-10 flex justify-center">
-          <button
-            type="button"
-            onClick={() => setShowAll((prev) => !prev)}
-            className="group inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-6 py-3 text-sm font-medium text-foreground hover:bg-card hover:border-primary/40 hover:shadow-[0_8px_24px_-8px_oklch(0.62_0.22_258/0.2)] transition-all duration-300 cursor-pointer"
-          >
-            {showAll ? "View Less" : "View More"}
-            <ChevronDown
-              className={`h-4 w-4 text-primary transition-transform duration-300 ${
-                showAll ? "rotate-180" : ""
-              }`}
-            />
-          </button>
-        </div>
+        <ScrollReveal direction="up" delay={200}>
+          <div className="mt-12 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAll((prev) => !prev)}
+              className="group inline-flex items-center gap-2 rounded-full border border-border/80 bg-background hover:bg-card px-8 py-3.5 text-sm font-semibold text-foreground hover:border-primary/50 hover:shadow-[0_8px_30px_-10px_oklch(0.62_0.22_258/0.3)] transition-all duration-300 cursor-pointer"
+            >
+              {showAll ? "View Less FAQs" : "View All FAQs"}
+              <ChevronDown
+                className={`h-4 w-4 text-primary transition-transform duration-500 ${
+                  showAll ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

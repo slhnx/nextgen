@@ -124,17 +124,11 @@
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
-    background-image:
-      radial-gradient(ellipse 70% 55% at 15% 10%, oklch(0.62 0.22 258 / 0.22), transparent 65%),
-      radial-gradient(ellipse 60% 45% at 85% 12%, oklch(0.78 0.18 245 / 0.14), transparent 68%),
-      radial-gradient(ellipse 55% 40% at 70% 80%, oklch(0.72 0.16 160 / 0.16), transparent 70%),
-      linear-gradient(180deg, oklch(0.05 0.02 250), oklch(0.08 0.02 250));
-    background-attachment: fixed;
     @apply bg-background text-foreground;
   }
   h1, h2, h3, h4, h5 {
     font-family: var(--font-display);
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
   }
 }
 
@@ -155,9 +149,10 @@
     }
   }
   .glass {
-    background: linear-gradient(180deg, oklch(0.18 0.03 252 / 0.5), oklch(0.10 0.02 252 / 0.3));
-    backdrop-filter: blur(14px);
-    border: 1px solid oklch(0.4 0.08 252 / 0.25);
+    background: linear-gradient(180deg, oklch(0.18 0.03 252 / 0.4), oklch(0.10 0.02 252 / 0.25));
+    backdrop-filter: blur(16px);
+    border: 1px solid oklch(0.4 0.08 252 / 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   }
   .glow-border {
     position: relative;
@@ -177,9 +172,9 @@
   }
   .grid-pattern {
     background-image:
-      linear-gradient(oklch(0.4 0.08 252 / 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(0.4 0.08 252 / 0.08) 1px, transparent 1px);
-    background-size: 56px 56px;
+      linear-gradient(oklch(0.4 0.08 252 / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.4 0.08 252 / 0.06) 1px, transparent 1px);
+    background-size: 64px 64px;
   }
   .noise {
     position: relative;
@@ -189,7 +184,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.03;
+    opacity: 0.02;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence baseFrequency='0.9' /></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   }
 
@@ -199,6 +194,74 @@
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
+  /* Refined section dividers */
+  .section-divider {
+    position: relative;
+  }
+  .section-divider::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, oklch(0.22 0.03 252 / 0.8), transparent);
+  }
+
+  /* Premium Card utilities */
+  .card-premium {
+    @apply relative overflow-hidden rounded-2xl border border-border/50 bg-card/40 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-border hover:bg-card/60 shadow-sm hover:shadow-md;
+  }
+
+  .nav-link-underline {
+    position: relative;
+    padding-bottom: 2px;
+  }
+  
+  .nav-link-underline::after {
+    @apply content-[''] absolute w-full h-[2px] bg-primary bottom-[-4px] left-0 scale-x-0 origin-right transition-transform duration-300 ease-out;
+  }
+  
+  .nav-link-underline:hover::after,
+  .nav-link-underline.active::after {
+    @apply scale-x-100 origin-left;
+  }
+
+  @keyframes moveDown {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+  
+  @keyframes moveRight {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .animate-line-down-1 {
+    animation: moveDown 8s linear infinite;
+  }
+  .animate-line-down-2 {
+    animation: moveDown 12s linear infinite;
+    animation-delay: 2s;
+  }
+  .animate-line-down-3 {
+    animation: moveDown 10s linear infinite;
+    animation-delay: 4s;
+  }
+
+  .animate-line-right-1 {
+    animation: moveRight 8s linear infinite;
+  }
+  .animate-line-right-2 {
+    animation: moveRight 12s linear infinite;
+    animation-delay: 3s;
+  }
+  .animate-line-right-3 {
+    animation: moveRight 10s linear infinite;
+    animation-delay: 1s;
+  }
+
 
   .page-bg {
     position: relative;
@@ -235,11 +298,11 @@
   50% { transform: translateY(-12px); }
 }
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.9; }
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
 }
 .animate-float { animation: float-slow 6s ease-in-out infinite; }
-.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
 
 @keyframes logo-marquee-ltr {
   0% { transform: translateX(-50%); }
@@ -262,7 +325,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 120px;
+  width: 150px;
   z-index: 2;
   pointer-events: none;
 }
@@ -283,7 +346,7 @@
   gap: 2rem;
   width: max-content;
   padding: 1.25rem 0;
-  animation: logo-marquee-ltr 30s linear infinite;
+  animation: logo-marquee-ltr 40s linear infinite;
 }
 
 .logo-track-rtl {
@@ -292,7 +355,7 @@
   gap: 2rem;
   width: max-content;
   padding: 1.25rem 0;
-  animation: logo-marquee-rtl 30s linear infinite;
+  animation: logo-marquee-rtl 40s linear infinite;
 }
 
 .logo-track-ltr:hover,
@@ -301,20 +364,20 @@
 }
 
 .logo-item {
-  min-width: 130px;
+  min-width: 140px;
   padding: 0.5rem;
   transition: all 0.3s ease;
 }
 
 @media (min-width: 640px) {
   .logo-item {
-    min-width: 150px;
+    min-width: 160px;
   }
 }
 
 @media (min-width: 1024px) {
   .logo-item {
-    min-width: 170px;
+    min-width: 180px;
   }
 }
 
@@ -329,28 +392,28 @@
 /* Premium white logo cloud cards styling */
 .logo-white-card {
   position: relative;
-  height: 3.25rem;
+  height: 3.5rem;
   width: 100%;
-  max-width: 140px;
+  max-width: 150px;
   background-color: #ffffff;
   border-radius: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0.5rem;
-  opacity: 0.85;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  opacity: 0.8;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .logo-white-card:hover {
   opacity: 1;
-  transform: scale(1.06);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 .logo-white-card-img {
   object-fit: contain;
-  padding: 0.45rem;
-  transition: transform 0.3s ease;
+  padding: 0.5rem;
+  transition: transform 0.4s ease;
 }

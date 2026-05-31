@@ -18,8 +18,19 @@ const monoFont = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NxtGen Academy - AI & Analytics Cohorts",
-  description: "Accelerate your career in Business Analytics, Data Analytics, and AI Product Management.",
+  title: "NxtGen Academy | Engineering Tech Careers",
+  description: "Invest in your future with transparent pricing and outcome-driven programs tailored to your learning needs and career goals. Build an investor-grade portfolio.",
+  metadataBase: new URL("https://nxtgenacademy.com"),
+  openGraph: {
+    title: "NxtGen Academy | Premium Tech Education",
+    description: "Accelerate your career with our flagship programs in Analytics, AI, and Product Management.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NxtGen Academy",
+    description: "Accelerate your career with our flagship programs in Analytics, AI, and Product Management.",
+  }
 };
 
 export default function RootLayout({
