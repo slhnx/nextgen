@@ -19,7 +19,7 @@ const tabData: Record<string, DataPoint[]> = {
     { year: 2032, avgSal: "₹17L", perfSal: "₹63L", yVal: 80 },
     { year: 2035, avgSal: "₹20L", perfSal: "₹72L", yVal: 20 },
   ],
-  "AI Digital Marketing": [
+  "Business Analyst": [
     { year: 2026, avgSal: "₹6L", perfSal: "₹12L", yVal: 420 },
     { year: 2028, avgSal: "₹8L", perfSal: "₹28L", yVal: 313 },
     { year: 2030, avgSal: "₹10L", perfSal: "₹38L", yVal: 246 },
@@ -33,7 +33,7 @@ const tabData: Record<string, DataPoint[]> = {
     { year: 2032, avgSal: "₹22L", perfSal: "₹70L", yVal: 33 },
     { year: 2035, avgSal: "₹26L", perfSal: "₹82L", yVal: 0 },
   ],
-  "Generative AI": [
+  "Data Analyst": [
     { year: 2026, avgSal: "₹8L", perfSal: "₹14L", yVal: 406 },
     { year: 2028, avgSal: "₹10L", perfSal: "₹32L", yVal: 286 },
     { year: 2030, avgSal: "₹12L", perfSal: "₹45L", yVal: 200 },

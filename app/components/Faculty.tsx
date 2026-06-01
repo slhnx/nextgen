@@ -7,6 +7,22 @@ import SectionHeading from "./SectionHeading";
 import { LiaLinkedin } from "react-icons/lia";
 import ScrollReveal from "./ScrollReveal";
 
+const ACCENTS = [
+  "from-rose-500/20 via-fuchsia-500/10 to-transparent border-rose-500/20",
+  "from-amber-500/20 via-orange-500/10 to-transparent border-amber-500/20",
+  "from-sky-500/20 via-cyan-500/10 to-transparent border-sky-500/20",
+  "from-emerald-500/20 via-teal-500/10 to-transparent border-emerald-500/20",
+  "from-indigo-500/20 via-violet-500/10 to-transparent border-indigo-500/20",
+  "from-lime-500/20 via-emerald-500/10 to-transparent border-lime-500/20",
+];
+
+function getInitials(name: string) {
+  const parts = name.trim().split(" ");
+  if (parts.length === 0) return "";
+  if (parts.length === 1) return parts[0][0]?.toUpperCase() ?? "";
+  return `${parts[0][0] ?? ""}${parts[parts.length - 1][0] ?? ""}`.toUpperCase();
+}
+
 const facultyMembers = [
   {
     name: "Aditya Verma",
@@ -108,62 +124,65 @@ export default function Faculty() {
             ref={scrollRef}
             className="mt-16 flex gap-6 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8 scroll-smooth"
           >
-            {facultyMembers.map((f, i) => (
-              <div
-                key={f.name}
-                className="flex-none w-[280px] sm:w-[320px] snap-start rounded-2xl overflow-hidden border border-border bg-card/40 backdrop-blur-sm shadow-sm flex flex-col group transition-all duration-500 hover:shadow-[0_20px_40px_-15px_oklch(0.62_0.22_258/0.3)] hover:-translate-y-1 hover:border-primary/30"
-              >
-                {/* Portrait Image */}
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <Image
-                    src={f.image}
-                    alt={f.name}
-                    fill
-                    sizes="(max-width: 640px) 280px, 320px"
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    priority
-                  />
-                </div>
+            {facultyMembers.map((f, i) => {
+              const accentClass = ACCENTS[i % ACCENTS.length];
+              return (
+                <div
+                  key={f.name}
+                  className="flex-none w-[280px] sm:w-[320px] snap-start rounded-2xl overflow-hidden border border-border bg-card/40 backdrop-blur-sm shadow-sm flex flex-col group transition-all duration-500 hover:shadow-[0_20px_40px_-15px_oklch(0.62_0.22_258/0.3)] hover:-translate-y-1 hover:border-primary/30"
+                >
+                  {/* Accent Header */}
+                  <div
+                    className={`relative h-28 bg-gradient-to-br ${accentClass.split(' ')[0]} ${accentClass.split(' ')[1]} ${accentClass.split(' ')[2]} border-b ${accentClass.split(' ')[3]} overflow-hidden`}
+                  >
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_oklch(0.97_0.005_250/0.1),_transparent_60%)]" />
+                    <div className="absolute inset-0 grid-pattern opacity-20 mix-blend-overlay" />
+                  </div>
 
-                {/* Faculty Info */}
-                <div className="p-6 flex flex-col flex-grow relative z-20">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <h3 className="font-display font-medium text-xl text-foreground group-hover:text-primary transition-colors">
-                        {f.name}
-                      </h3>
-                      <p className="mt-1 text-sm text-muted-foreground font-medium">
-                        {f.role}
-                      </p>
+                  {/* Faculty Info */}
+                  <div className="p-6 pt-10 flex flex-col flex-grow relative z-20">
+                    {/* Initials Avatar */}
+                    <div className="absolute left-6 -top-7 h-14 w-14 rounded-xl bg-card border border-border/80 shadow-md grid place-items-center text-lg font-heading font-medium text-foreground group-hover:scale-105 group-hover:-translate-y-1 transition-transform duration-300 z-30">
+                      {getInitials(f.name)}
                     </div>
-                    <a
-                      href={f.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="h-8 w-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-colors flex-shrink-0"
-                      aria-label={`${f.name}'s LinkedIn profile`}
-                    >
-                      <LiaLinkedin className="h-5 w-5" />
-                    </a>
-                  </div>
-                  
-                  {/* Company Logo at Bottom */}
-                  <div className="mt-6 pt-5 border-t border-border/50 flex items-center justify-between">
-                    <span className="text-[10px] font-mono uppercase tracking-[0.1em] text-muted-foreground">Expert from</span>
-                    <div className="relative h-6 w-24">
-                      <Image
-                        src={f.companyLogo}
-                        alt={f.company}
-                        fill
-                        sizes="96px"
-                        className="object-contain object-right"
-                      />
+
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <h3 className="font-display font-medium text-lg text-foreground group-hover:text-primary transition-colors">
+                          {f.name}
+                        </h3>
+                        <p className="mt-1 text-sm text-muted-foreground font-medium">
+                          {f.role}
+                        </p>
+                      </div>
+                      <a
+                        href={f.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="h-8 w-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-colors flex-shrink-0"
+                        aria-label={`${f.name}'s LinkedIn profile`}
+                      >
+                        <LiaLinkedin className="h-5 w-5" />
+                      </a>
+                    </div>
+                    
+                    {/* Company Logo at Bottom */}
+                    <div className="mt-6 pt-5 border-t border-border/50 flex items-center justify-between">
+                      <span className="text-[10px] font-mono uppercase tracking-[0.1em] text-muted-foreground">Expert from</span>
+                      <div className="relative h-6 w-24">
+                        <Image
+                          src={f.companyLogo}
+                          alt={f.company}
+                          fill
+                          sizes="96px"
+                          className="object-contain object-right"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </ScrollReveal>
       </div>
